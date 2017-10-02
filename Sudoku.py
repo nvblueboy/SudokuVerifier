@@ -6,19 +6,19 @@
 
 class Sudoku():
 	def __init__(self):
-		self.rows = {(i,j):0 for i in range(9) for j in range(9)}
+		self.map = {(i,j):0 for i in range(9) for j in range(9)}
 	def __init__(self,rows):
 		##Create a dictionary from a list of lists: Row, then column.
-		self.rows = {(i,j):0 for i in range(9) for j in range(9)}
+		self.map = {(i,j):0 for i in range(9) for j in range(9)}
 		for i in range(len(rows)):
 			for j in range(len(rows[0])):
-				self.rows[(i,j)] = rows[i][j]
+				self.map[(i,j)] = rows[i][j]
 	def __str__(self):
 		output = []
 		for i in range(9):
 			partial = []
 			for j in range(9):
-				partial.append(str(self.rows[(i,j)])) 
+				partial.append(str(self.map[(i,j)])) 
 			output.append("  ".join(partial))
 		return "\n\n".join(output)
 	def getRows(self):
@@ -26,7 +26,7 @@ class Sudoku():
 		for i in range(9):
 			partial = {}
 			for j in range(9):
-				partial[(i,j)] = self.rows[(i,j)]
+				partial[(i,j)] = self.map[(i,j)]
 			output.append(partial)
 		return output
 	def getColumns(self):
@@ -34,7 +34,7 @@ class Sudoku():
 		for j in range(9):
 			partial = {}
 			for i in range(9):
-				partial[(i,j)] = self.rows[(i,j)]
+				partial[(i,j)] = self.map[(i,j)]
 			output.append(partial)
 		return output
 	def getBoxes(self):
@@ -48,7 +48,7 @@ class Sudoku():
 						##Loop through the inside of the box.
 						i = b_y * 3 + y
 						j = b_x * 3 + x
-						box[(i,j)] = self.rows[(i,j)]
+						box[(i,j)] = self.map[(i,j)]
 				boxes.append(box)
 		return boxes
 
