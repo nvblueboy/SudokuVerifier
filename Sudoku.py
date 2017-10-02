@@ -37,7 +37,7 @@ class Sudoku():
 						##Loop through the inside of the box.
 						box.append(self.rows[(b_y * 3) + y][(b_x * 3) + x])
 				boxes.append(box)
-				
+
 		return boxes
 
 
@@ -61,7 +61,10 @@ def readFile(filename):
 	return Sudoku(outList)
 
 if __name__ == "__main__":
+	import SegmentChecker
 	s = readFile("testData.txt")
 	print(s)
 	print(s.getColumns())
-	print(s.getBoxes())
+	print(SegmentChecker.checkSegments(s.getBoxes()))
+	print(SegmentChecker.checkSegments(s.getRows()))
+	print(SegmentChecker.checkSegments(s.getColumns()))
