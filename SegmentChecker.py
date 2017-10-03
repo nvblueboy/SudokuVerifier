@@ -27,6 +27,9 @@ def checkSegments(segments):
 		for k in segment.keys():
 			reverse[segment[k]].append(k)
 		for k in reverse.keys():
+			if k == 0:
+				result.failure = True
+				result.locations = result.locations + reverse[k]
 			if len(reverse[k]) != 1:
 				result.failure=True
 				if len(reverse[k]) == 0:

@@ -21,6 +21,12 @@ class Sudoku():
 				partial.append(str(self.map[(i,j)])) 
 			output.append("  ".join(partial))
 		return "\n\n".join(output)
+	def hasBlanks(self):
+		for item in self.map.items():
+			if item == 0:
+				return True
+		else:
+			return False
 	def getRows(self):
 		output = []
 		for i in range(9):

@@ -23,12 +23,12 @@ def ThreadedFunction(target, args, returnPoint):
 
 
 if __name__ == "__main__":
-	def func(n):
+	def func(n, tdName):
 		for i in range(n):
-			print(i)
+			print(tdName+" " +str(i))
 		return n
-	t1 = ReturningThread(target=func, args=[5])
-	t2 = ReturningThread(target=func, args=[7])
+	t1 = ReturningThread(target=func, args=[5,"t1"])
+	t2 = ReturningThread(target=func, args=[7, "t2"])
 	t1.start()
 	t2.start()
 	t1.join()
