@@ -73,11 +73,8 @@ def readFile(filename):
 
 if __name__ == "__main__":
 	import SegmentChecker
-	s = readFile("rows.txt")
+	s = readFile("testData.txt")
 	print(s)
-	print(s.getRows())
-	print(s.getColumns())
-	print(s.getBoxes())
-	# print(SegmentChecker.checkSegments(s.getBoxes()))
-	# print(SegmentChecker.checkSegments(s.getRows()))
-	# print(SegmentChecker.checkSegments(s.getColumns()))
+	print(SegmentChecker.checkSegments(s.getBoxes()))
+	print(SegmentChecker.checkSegments(s.getRows()))
+	print(SegmentChecker.checkSegments(s.getColumns()))
