@@ -4,12 +4,21 @@
 # main.py
 # Holds the main function.
 
-import SegmentChecker, Sudoku, multithreading, Checking
+import sys
+
+import SegmentChecker, Sudoku, multithreading, Checking, Solver
 
 def main():
-	filename="testDataPassing.txt"
+	if len(sys.argv) != 2:
+		print("Usage: python3 "+sys.argv[0]+" <filename>")
+		return
+	filename=sys.argv[1]
 	s = Sudoku.readFile(filename)
-	print(Checking.check(s))
+	status = Checking.check(s)
+	if status != True:
+		print(Solver.solve(s, status))
+	else:
+		print("That is a correct puzzle!")
 
 
 if __name__ == "__main__":

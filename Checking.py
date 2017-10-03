@@ -27,9 +27,6 @@ def check(s):
 	box_failed = box_t.getReturnValue().failure
 
 	if row_failed or col_failed or box_failed:			
-		print("row_t:\n" + str(row_t.getReturnValue()))
-		print("col_t:\n" + str(col_t.getReturnValue()))
-		print("box_t:\n" + str(box_t.getReturnValue()))
 		return [i.getReturnValue() for i in [row_t, col_t, box_t]] ##Return all Segment Results.
 	else:
 		return True
